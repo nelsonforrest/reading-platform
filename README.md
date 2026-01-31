@@ -11,40 +11,42 @@ The proposed project is aimed at designing and developing a web based social rea
 ![Wireframes](images/Wireframes.jpg)
 
 ## User Stories
+
 ### Account and Profiles
-1. As a user, I want to create an account.
-2. As a user, I want to log in securly.
-3. As a user, I want to customize my profile.
+1. As a user, I want to create an account to be able to save and monitor my reading process.
+2. As a user, I want to log in to the webpage in a secure manner so that no one can see my information.
+3. As a user, I want to make my profile custom in such a way that my account is representative of my interests.
 
 ### Book Discovery
-1. As a user, I want to search for books.
-2. As a user, I want to view book details.
-3. As a user, I want to see book ratings and reviews.
+1. As a user, I want to search books to be able to find titles to add them to my shelves.
+2. As a user, I want to see the book information to be able to choose the next book to read.
+3. As a user, I want to have book ratings and reviews because I would be able to select books more confidently.
 
 ### Reading Tracking
-1. As a user, I want to track manga by volume.
-2. As a user, I want to update my reading progress.
-3. As a user, I want to mark books as completed or dropped.
+1. As a user, I want to monitor manga in terms of volume to ensure my reading progress is correct.
+2. As a user, I want to record my reading progress in order to keep my shelves up to date.
+3. As a user, I want to indicate that I have read or dropped books to ensure that my reading history is systematized.
 
-### Shelve Organization
-1. As a user, I want to create custom shelves to organize my books. 
-2. As a user, I want private shelves only for me to see. 
-3. As a user, I want to move books between shelves.
+### Shelf Organization
+1. As a user, I want to have custom shelves as a user because I would like to arrange my books in the manner I want.
+2. As a user, I want personal shelves so that some of my reading lists would not be seen by anyone.
+3. As a user, I want to be able to transfer books between shelves in order to have my organization evolve with time.
 
 ### Ratings
-1. As a user, I want to rate my books. 
-2. As a user, I want to be able to rate with detail.
-3. As a user, I want to write reviews of my rated books. 
+1. As a user, I want to rate my books to be able to remember how I liked them.
+2. As a user, I want to be more specific in rating books in order that my ratings would be more representative of my opinions.
+3. As a user, I want to leave reviews to enable me to express my opinion to other readers.
 
 ### Recommendations
-1. As a user, I want to recommend books on my profile. 
-2. As a user, I want to have a swipe based recommendation for discovering new books. 
-3. As a user, I want to be recommended based on my reading history. 
+1. As a user, I want to add books to my profile to get people to learn about books that I like.
+2. As a user, I want to have a swipe based recommendations whereby finding new books is fast and enjoyable.
+3. As a user, I want to receive recommendations depending on my reading history in order to get suggestions corresponding to my interests.
 
 ### Messaging and Social
-1. As a user, I want to share books in messaging.
-2. As a user, I want to send reviews to friends. 
-3. As a user, I want to message added friends freely. 
+1. As a user, I want to exchange books in messaging because this will enable me to be able to recommend books to friends with ease.
+2. As a user, I want to post reviews to my friends in order to discuss books with them.
+3. As a user, I want to send messages to friends in a way that we will be able to discuss reading without restriction.
+
 
 ## Use Cases
 
