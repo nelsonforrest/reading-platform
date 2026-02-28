@@ -1,6 +1,17 @@
 # reading-platform
 Repo for final project in CIS4891.
 
+## Table of Contents
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Wireframes](#wireframes)
+- [Entity Relationship Diagram (Chen Notation)](#entity-relationship-diagram-chen-notation)
+- [UML Class Diagram](#uml-class-diagram)
+- [User Stories](#user-stories)
+- [Use Cases](#use-cases)
+- [Use Case Diagram](#use-case-diagram)
+
+
 ## Overview
 The proposed project is aimed at designing and developing a web based social reading application. The idea is to create a system that enables users to monitor the reading process, organize their own collections, and find new books in more free and personalized manner than the current platforms available. The project will consist of a database, API layer, and a graphical user interface, which is in line with the technical requirements of the course and will facilitate incremental development throughout the SDLC.
 
@@ -9,6 +20,12 @@ The proposed project is aimed at designing and developing a web based social rea
 
 ## Wireframes
 ![Wireframes](images/Wireframes.jpg)
+
+## Entity Relationship Diagram (Chen Notation)
+![ChenERD](images/ChenERD.png)
+
+## UML Class Diagram
+![ChenERD](images/UML.png)
 
 ## User Stories
 
