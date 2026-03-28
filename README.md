@@ -10,6 +10,8 @@ Repo for final project in CIS4891.
 - [User Stories](#user-stories)
 - [Use Cases](#use-cases)
 - [Use Case Diagram](#use-case-diagram)
+- [Book Title Model Code](#book-title-model-code)
+- [Data Access Layer](#data-access-layer)
 
 
 ## Overview
@@ -257,3 +259,10 @@ A2: No recommendations available
 
 ## Use Case Diagram
 ![Usecasediagram](images/Usecasediagram.jpg)
+
+## Book Title Model Code
+![BookTitleModelCode](images/BookTitleCode.png)
+
+## Data Access Layer
+![ApiJson](images/ApiJson.png)
+
