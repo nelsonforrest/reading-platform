@@ -1,0 +1,46 @@
+@model List<BookTitle>
+@{
+    ViewData["Title"] = "Community";
+}
+
+<section class="page-header compact">
+    <span class="eyebrow">Community</span>
+    <h1>Reading is better when it is social.</h1>
+    <p>This prototype includes space for reviews, friend activity, and messaging.</p>
+</section>
+
+<div class="info-grid">
+    <article class="info-card">
+        <h3>Friend recommendations</h3>
+        <p>Readers will share titles directly instead of sending screenshots or long explanations.</p>
+    </article>
+    <article class="info-card">
+        <h3>Review feed</h3>
+        <p>Recent opinions will surface on the home feed so discovery feels social rather than purely algorithmic.</p>
+    </article>
+    <article class="info-card">
+        <h3>Direct messaging</h3>
+        <p>A later build will add private conversations for trading recommendations and reactions.</p>
+    </article>
+</div>
+
+<section>
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">Recent buzz</span>
+            <h2>Readers are talking about</h2>
+        </div>
+    </div>
+
+    <div class="info-grid">
+        @foreach (var book in Model)
+        {
+            var firstReview = book.Reviews.First();
+            <article class="info-card">
+                <h3>@book.TitleName</h3>
+                <p class="muted">@firstReview.ReviewerName rated it @firstReview.Rating.ToString("0.0")</p>
+                <p>@firstReview.Comment</p>
+            </article>
+        }
+    </div>
+</section>

@@ -1,0 +1,63 @@
+@model List<BookTitle>
+@{
+    ViewData["Title"] = "Shelves";
+    var currentlyReading = Model.Where(m => m.ReadingStatus == "Currently Reading").ToList();
+    var wantToRead = Model.Where(m => m.ReadingStatus == "Want to Read").ToList();
+    var completed = Model.Where(m => m.ReadingStatus == "Completed").ToList();
+}
+
+<section class="page-header compact">
+    <span class="eyebrow">Shelves</span>
+    <h1>Organize your reading life</h1>
+    <p>This page demonstrates public shelves, private shelf capable titles, and progress-aware organization.</p>
+</section>
+
+<div class="shelf-grid">
+    <section class="shelf-column">
+        <h2>Currently Reading</h2>
+        @foreach (var book in currentlyReading)
+        {
+            <article class="mini-card">
+                <strong>@book.TitleName</strong>
+                <span>@book.ProgressLabel</span>
+            </article>
+        }
+    </section>
+
+    <section class="shelf-column">
+        <h2>Want to Read</h2>
+        @foreach (var book in wantToRead)
+        {
+            <article class="mini-card">
+                <strong>@book.TitleName</strong>
+                <span>@book.Format</span>
+            </article>
+        }
+    </section>
+
+    <section class="shelf-column">
+        <h2>Completed</h2>
+        @foreach (var book in completed)
+        {
+            <article class="mini-card">
+                <strong>@book.TitleName</strong>
+                <span>Rated @book.AverageRating.ToString("0.0")</span>
+            </article>
+        }
+    </section>
+</div>
+
+<section class="info-grid">
+    <article class="info-card">
+        <h3>Private shelf support</h3>
+        <p>@Model.Count(m => m.PrivateShelfEligible) sample titles can be placed on hidden shelves.</p>
+    </article>
+    <article class="info-card">
+        <h3>Volume tracking</h3>
+        <p>Manga and other series can display current and total volume progress.</p>
+    </article>
+    <article class="info-card">
+        <h3>Flexible organization</h3>
+        <p>The interface is structured so books can move between shelves as the reader status changes.</p>
+    </article>
+</section>
