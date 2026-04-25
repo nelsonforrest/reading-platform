@@ -1,0 +1,66 @@
+@model BookTitle
+@{
+    ViewData["Title"] = "Title Details";
+}
+
+<section class="details-layout">
+    <div class="details-cover @Model.CoverClass"></div>
+    <div>
+        <span class="eyebrow">Title Details</span>
+        <h1>@Model.TitleName</h1>
+        <p class="lead">by @Model.AuthorName</p>
+        <p>@Model.Description</p>
+
+        <div class="details-grid">
+            <div class="info-card">
+                <h3>Format</h3>
+                <p>@Model.Format</p>
+            </div>
+            <div class="info-card">
+                <h3>Genre</h3>
+                <p>@Model.Genre</p>
+            </div>
+            <div class="info-card">
+                <h3>Average rating</h3>
+                <p>@Model.AverageRating.ToString("0.0") / 5.0</p>
+            </div>
+            <div class="info-card">
+                <h3>Reading progress</h3>
+                <p>@Model.ProgressLabel</p>
+            </div>
+        </div>
+
+        <div class="action-panel">
+            <span class="tag">@Model.ReadingStatus</span>
+            @if (Model.PrivateShelfEligible)
+            {
+                <span class="tag">Private shelf eligible</span>
+            }
+            else
+            {
+                <span class="tag">Public shelf friendly</span>
+            }
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">Reviews</span>
+            <h2>Community reactions</h2>
+        </div>
+        <a class="text-link" asp-controller="Catalog" asp-action="Index">Back to catalog</a>
+    </div>
+
+    <div class="info-grid">
+        @foreach (var review in Model.Reviews)
+        {
+            <article class="info-card">
+                <h3>@review.ReviewerName</h3>
+                <p class="muted">Rating: @review.Rating.ToString("0.0") / 5.0</p>
+                <p>@review.Comment</p>
+            </article>
+        }
+    </div>
+</section>
