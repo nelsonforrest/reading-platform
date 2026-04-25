@@ -7,6 +7,12 @@ namespace ReadingPlatform.Web.Controllers;
 [Route("api/[controller]")]
 public class BookTitlesController : ControllerBase
 {
+    [HttpGet("/BookTitles")]
+    public IActionResult CatalogPage()
+    {
+        return RedirectToAction("Index", "Catalog");
+    }
+
     [HttpGet]
     public ActionResult<IEnumerable<BookTitle>> Get()
     {

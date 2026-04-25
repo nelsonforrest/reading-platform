@@ -1,0 +1,72 @@
+@model List<BookTitle>
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+<section class="page-header compact">
+    <span class="eyebrow">Catalog</span>
+    <h1>Search books and manga</h1>
+    <p>Browse titles by keyword or narrow the list by format.</p>
+</section>
+
+<form method="get" class="search-panel">
+    <div class="form-field grow">
+        <label for="search">Search</label>
+        <input id="search" type="text" name="search" value="@ViewBag.Search" placeholder="Try title, author, or genre" />
+    </div>
+    <div class="form-field">
+        <label for="format">Format</label>
+        <select id="format" name="format">
+            <option value="">All formats</option>
+            @foreach (var item in (List<string>)ViewBag.Formats)
+            {
+                if (string.Equals(item, (string?)ViewBag.Format, StringComparison.OrdinalIgnoreCase))
+                {
+                    <option value="@item" selected>@item</option>
+                }
+                else
+                {
+                    <option value="@item">@item</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-actions">
+        <button class="button button-primary" type="submit">Search</button>
+        <a class="button button-secondary" asp-action="Index">Reset</a>
+    </div>
+</form>
+
+@if (Model.Count == 0)
+{
+    <div class="empty-state">
+        <h2>No titles matched your search.</h2>
+        <p>Try a broader keyword or switch back to all formats.</p>
+    </div>
+}
+else
+{
+    <div class="card-grid">
+        @foreach (var book in Model)
+        {
+            <article class="book-card">
+                <div class="cover @book.CoverClass"></div>
+                <div class="book-card-body">
+                    <div class="tag-row">
+                        <span class="tag">@book.Format</span>
+                        <span class="tag">@book.Genre</span>
+                        <span class="tag">@book.ReadingStatus</span>
+                    </div>
+                    <h3>@book.TitleName</h3>
+                    <p class="muted">by @book.AuthorName</p>
+                    <p>@book.Description</p>
+                    <div class="meta-row">
+                        <span>Rating: @book.AverageRating.ToString("0.0")</span>
+                        <span>@book.ProgressLabel</span>
+                    </div>
+                    <a class="button button-secondary" asp-action="Details" asp-route-id="@book.Id">Open Title</a>
+                </div>
+            </article>
+        }
+    </div>
+}

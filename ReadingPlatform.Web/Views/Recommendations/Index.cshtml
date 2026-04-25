@@ -1,36 +1,61 @@
-@model List<BookTitle>
+@model List<ReadingPlatform.Web.Models.BookTitle>
+
 @{
     ViewData["Title"] = "Recommendations";
 }
 
-<section class="page-header compact">
-    <span class="eyebrow">Recommendations</span>
-    <h1>Swipe style discovery concept</h1>
-    <p>
-        This page presents the recommendation feature. In a future version,
-        the cards could support true swipe gestures and user feedback persistence.
-    </p>
+<section class="recommendation-page">
+    <div class="recommendation-heading">
+        <p class="eyebrow">The enchanted recommendation book</p>
+        <h1>Turn the page when a story calls to you.</h1>
+        <p>
+            Like a book to keep it in mind. Reject it to tear the page from the library.
+        </p>
+    </div>
+
+    <div class="book-stage">
+        <button class="swipe-btn reject-btn" type="button" id="skipBook">Skip</button>
+
+        <div class="open-book" id="openBook">
+            <div class="book-left-page">
+                <h2>Suggested Tome</h2>
+                <p>Read the page, judge the story, then choose its fate.</p>
+            </div>
+
+            <div class="book-right-page" id="bookPage">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    var book = Model[i];
+
+                    <article class="recommendation-card @(i == 0 ? "active" : "")"
+                             data-index="@i">
+                        <div class="book-meta">
+                            <span>@book.Format</span>
+                            <span>@book.Genre</span>
+                            <span>@book.AverageRating.ToString("0.0") ★</span>
+                        </div>
+
+                        <h2>@book.TitleName</h2>
+                        <h3>by @book.AuthorName</h3>
+
+                        <p>
+                            A recommended title from your library catalog. Choose like to keep it,
+                            or skip to remove it from the enchanted book.
+                        </p>
+                    </article>
+                }
+
+                <article class="recommendation-card end-card">
+                    <h2>The shelf is quiet.</h2>
+                    <p>No more recommendations are available right now.</p>
+                </article>
+            </div>
+        </div>
+
+        <button class="swipe-btn like-btn" type="button" id="likeBook">Like</button>
+    </div>
 </section>
 
-<div class="recommendation-stack">
-    @foreach (var book in Model)
-    {
-        <article class="recommendation-card">
-            <div class="cover wide @book.CoverClass"></div>
-            <div>
-                <div class="tag-row">
-                    <span class="tag">@book.Format</span>
-                    <span class="tag">@book.Genre</span>
-                    <span class="tag">@book.AverageRating.ToString("0.0")</span>
-                </div>
-                <h2>@book.TitleName</h2>
-                <p class="muted">by @book.AuthorName</p>
-                <p>@book.Description</p>
-                <div class="hero-actions">
-                    <a class="button button-primary" asp-controller="Catalog" asp-action="Details" asp-route-id="@book.Id">Like</a>
-                    <a class="button button-secondary" asp-controller="Catalog" asp-action="Index">Skip</a>
-                </div>
-            </div>
-        </article>
-    }
-</div>
+@section Scripts {
+    <script src="~/js/recommendations.js" asp-append-version="true"></script>
+}

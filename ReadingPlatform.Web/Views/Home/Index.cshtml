@@ -1,81 +1,36 @@
-@model List<BookTitle>
 @{
     ViewData["Title"] = "Home";
 }
 
-<section class="hero">
-    <div>
-        <span class="eyebrow">Social Reading App</span>
-        <h1>Track books and manga your way.</h1>
+<section class="hero-library">
+    <div class="hero-content">
+        <p class="eyebrow">A fantasy library for every reader</p>
+        <h1>Discover, track, and collect stories worth remembering.</h1>
         <p>
-            Reading Platform is built for readers who want shelves, progress tracking, half-step style ratings,
-            social interaction, and recommendation discovery in one clean interface.
+            Build shelves, follow your reading progress, rate books and manga,
+            and find your next favorite title through magical recommendations.
         </p>
+
         <div class="hero-actions">
-            <a class="button button-primary" asp-controller="Catalog" asp-action="Index">Browse Catalog</a>
-            <a class="button button-secondary" asp-controller="Recommendations" asp-action="Index">See Recommendations</a>
+            <a class="btn btn-gold" asp-controller="Recommendations" asp-action="Index">Open Recommendations</a>
+            <a class="btn btn-ghost" asp-controller="Catalog" asp-action="Index">Browse Titles</a>
         </div>
-    </div>
-    <div class="hero-card">
-        <h3>Core Features</h3>
-        <ul class="feature-list">
-            <li>Search books and manga titles</li>
-            <li>Track progress by volume or title</li>
-            <li>Create public or private shelves</li>
-            <li>Read reviews and save favorites</li>
-            <li>Discover swipe-ready recommendations</li>
-        </ul>
     </div>
 </section>
 
-<section class="stats-grid">
-    <article class="stat-card">
-        <strong>6</strong>
-        <span>Sample titles</span>
+<section class="feature-grid">
+    <article>
+        <h2>Private Shelves</h2>
+        <p>Organize books, manga, and series by your own reading style.</p>
     </article>
-    <article class="stat-card">
-        <strong>3</strong>
-        <span>Reader journeys</span>
-    </article>
-    <article class="stat-card">
-        <strong>2</strong>
-        <span>Formats supported</span>
-    </article>
-    <article class="stat-card">
-        <strong>1</strong>
-        <span>Unified reading hub</span>
-    </article>
-</section>
 
-<section>
-    <div class="section-heading">
-        <div>
-            <span class="eyebrow">Featured Titles</span>
-            <h2>Start with popular picks</h2>
-        </div>
-        <a class="text-link" asp-controller="Catalog" asp-action="Index">View full catalog</a>
-    </div>
+    <article>
+        <h2>Reading Progress</h2>
+        <p>Track volumes, status, ratings, and personal notes.</p>
+    </article>
 
-    <div class="card-grid">
-        @foreach (var book in Model)
-        {
-            <article class="book-card">
-                <div class="cover @book.CoverClass"></div>
-                <div class="book-card-body">
-                    <div class="tag-row">
-                        <span class="tag">@book.Format</span>
-                        <span class="tag">@book.Genre</span>
-                    </div>
-                    <h3>@book.TitleName</h3>
-                    <p class="muted">by @book.AuthorName</p>
-                    <p>@book.Description</p>
-                    <div class="meta-row">
-                        <span>Rating: @book.AverageRating.ToString("0.0")</span>
-                        <span>@book.ProgressLabel</span>
-                    </div>
-                    <a class="button button-secondary" asp-controller="Catalog" asp-action="Details" asp-route-id="@book.Id">View Details</a>
-                </div>
-            </article>
-        }
-    </div>
+    <article>
+        <h2>Magical Discovery</h2>
+        <p>Use swipe-style recommendations to quickly find titles you may love.</p>
+    </article>
 </section>

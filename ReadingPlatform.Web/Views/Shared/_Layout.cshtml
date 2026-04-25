@@ -4,44 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] | Reading Platform</title>
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="site-header">
-        <div class="container nav-shell">
-            <a class="brand" asp-controller="Home" asp-action="Index">Reading Platform</a>
-            <nav class="main-nav">
+    <div class="app-shell">
+        <header class="site-header">
+            <div class="brand-bar">
+                <a class="brand-logo" asp-controller="Home" asp-action="Index">Reading Platform</a>
+            </div>
+
+            <nav class="retro-nav">
                 <a asp-controller="Home" asp-action="Index">Home</a>
                 <a asp-controller="Catalog" asp-action="Index">Catalog</a>
                 <a asp-controller="Shelves" asp-action="Index">Shelves</a>
                 <a asp-controller="Recommendations" asp-action="Index">Recommendations</a>
-                <a asp-controller="Community" asp-action="Index">Community</a>
-                <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <span class="nav-time">LIBRARY SYSTEM</span>
             </nav>
-        </div>
-    </header>
+        </header>
 
-    <main class="container page-content">
-        @RenderBody()
-    </main>
+        <main class="main-content">
+            @RenderBody()
+        </main>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h4>Reading Platform</h4>
-                <p>Track books and manga, manage private shelves, review titles, and discover your next obsession.</p>
-            </div>
-            <div>
-                <h4>Built For</h4>
-                <p>Catalog search, shelf organization, progress tracking, ratings, messaging, and swipe style discovery.</p>
-            </div>
-            <div>
-                <h4>API</h4>
-                <p><a href="/api/booktitles">/api/booktitles</a></p>
-            </div>
-        </div>
-    </footer>
+        <footer class="site-footer">
+            <span>2026 Reading Platform</span>
+        </footer>
+    </div>
 
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
